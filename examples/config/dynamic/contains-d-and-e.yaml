@@ -1,0 +1,21 @@
+http:
+  routers:
+    contains-c-and-d-router:
+      rule: "Host(`contains-c-and-d.localhost`)"
+      middlewares:
+        - contains-c-and-d
+      service: whoami-service
+
+  middlewares:
+    contains-c-and-d:
+      plugin:
+        validate-headers:
+          headers:
+            - header:
+              name: "MATCH_ALL_CONTAINS"
+              matchtype: all
+              values:
+                - "D"
+                - "E"
+              required: true
+              contains: true

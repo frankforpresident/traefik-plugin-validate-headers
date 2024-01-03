@@ -1,0 +1,20 @@
+http:
+  routers:
+    none-optional-router:
+      rule: "Host(`none-optional.localhost`)"
+      middlewares:
+        - none-optional-middleware
+      service: whoami-service
+
+  middlewares:
+    none-optional-middleware:
+      plugin:
+        validate-headers:
+          headers:
+            - header:
+              name: "MATCH_NONE_OPTIONAL"
+              matchtype: none
+              values:
+                - "C"
+                - "D"
+              required: false

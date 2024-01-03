@@ -1,0 +1,33 @@
+http:
+  routers:
+    multiple-headers-router:
+      rule: "Host(`multiple-headers.localhost`)"
+      middlewares:
+        - multiple-headers-middleware
+      service: whoami-service
+
+  middlewares:
+    multiple-headers-middleware:
+      plugin:
+        validate-headers:
+          matchtype: one
+          error: # Optional, default is '403 Forbidden'
+            statuscode: 418
+            message: "I'm a teapot"
+          headers:
+            - header:
+              name: "HEADER-1"
+              matchtype: one
+              values:
+                - "A"
+                - "B"
+                - "C"
+              required: true
+            - header:
+              name: "HEADER-2"
+              matchtype: none
+              values:
+                - "X"
+                - "Y"
+                - "Z"
+              required: true

@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  whoami:
+    container_name: whoami
+    image: traefik/whoami
+    networks:
+      - proxy  
+ 
+  traefik:
+    container_name: traefik
+    image: traefik:v2.10
+    command:
+      - --configFile=/etc/traefik/static/traefik.yaml
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/etc/traefik
+      - ../:/plugins-local/src/github.com/frankforpresident/traefik-plugin-validate-headers
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    name: proxy
+    driver: bridge   

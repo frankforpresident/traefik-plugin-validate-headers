@@ -1,0 +1,21 @@
+http:
+  routers:
+    regex-router:
+      rule: "Host(`regex.localhost`)"
+      middlewares:
+        - regex-middleware
+      service: whoami-service
+
+  middlewares:
+    regex-middleware:
+      plugin:
+        validate-headers:
+          headers:
+            - header:
+              name: "MATCH_ONE_REGEX"
+              matchtype: one
+              values:
+                - "^XYZ$"
+                - "^789$"
+              regex: true
+              required: true

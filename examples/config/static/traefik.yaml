@@ -1,0 +1,33 @@
+api:
+  insecure: true
+  dashboard: true
+
+# Entry points
+entryPoints:
+  web:
+    address: ":80"
+
+# Providers
+providers:
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true
+
+# Logging
+log:
+  level: DEBUG
+accessLog: {}
+
+experimental:
+  # uncomment to enable plugins
+
+  # local plugin
+  # localPlugins:
+  #   validate-headers:
+  #     moduleName: github.com/frankforpresident/traefik-plugin-validate-headers
+
+  # cloud plugin
+  plugins:
+    validate-headers:
+      moduleName: github.com/frankforpresident/traefik-plugin-validate-headers
+      version: "v1.0.0"

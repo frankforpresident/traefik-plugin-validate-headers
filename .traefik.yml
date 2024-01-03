@@ -1,0 +1,45 @@
+displayName: Validate Headers
+type: middleware
+
+import: github.com/frankforpresident/traefik-plugin-validate-headers
+
+summary: "The Validate Headers Plugin for Traefik 2 empowers you to enforce strict header validation policies for incoming HTTP requests. With a versatile set of features, this middleware allows you to control and secure your web applications effectively."
+
+iconPath: img/lock.png
+
+testData:
+  error:
+    statuscode: 404
+    message: "Not Found"
+  matchtype: one
+  headers:
+    - header:
+      name: "MATCH_ONE_REQUIRED"
+      matchtype: one
+      values:
+        - "A"
+        - "B"
+      required: true
+    - header:
+      name: "MATCH_ONE_OPTIONAL"
+      matchtype: none
+      values:
+        - "C"
+        - "D"
+      required: false
+    - header:
+      name: "MATCH_ALL_CONTAINS"
+      matchtype: all
+      values:
+        - "ABC"
+        - "123"
+      contains: true
+      required: true
+    - header:
+      name: "MATCH_ONE_REGEX"
+      matchtype: one
+      values:
+        - "^XYZ$"
+        - "^789$"
+      regex: true
+      required: true

@@ -1,0 +1,23 @@
+http:
+  routers:
+    a-or-b-router:
+      rule: "Host(`a-or-b.localhost`)"
+      middlewares:
+        - a-or-b-middleware
+      service: whoami-service
+
+  middlewares:
+    a-or-b-middleware:
+      plugin:
+        validate-headers:
+          error: # Optional, default is '403 Forbidden'
+            statuscode: 404
+            message: "Not Found"
+          headers:
+            - header:
+              name: "MATCH_ONE_REQUIRED"
+              matchtype: one
+              values:
+                - "A"
+                - "B"
+              required: true
