@@ -255,5 +255,7 @@ This high level of test coverage demonstrates our commitment to delivering a sec
 
 Feel free to review our unit test suite and coverage statistics on [Codecov](https://app.codecov.io/gh/frankforpresident/traefik-plugin-validate-headers) to gain confidence in the reliability of our codebase.
 
+## Acknowledgements
 
-Inspired on [checkheadersplugin](https://github.com/dkijkuit/checkheadersplugin)
+This repo was heavily inspired by [checkheadersplugin](https://github.com/dkijkuit/checkheadersplugin) but has been significantly modified to improve performance and add new features. Their initial work provided a solid foundation for us to build upon and enhance. We appreciate their contribution to the open-source community.
+
