@@ -13,30 +13,26 @@ testData:
     message: "Not Found"
   matchtype: one
   headers:
-    - header:
-      name: "MATCH_ONE_REQUIRED"
+    - name: "MATCH_ONE_REQUIRED"
       matchtype: one
       values:
         - "A"
         - "B"
       required: true
-    - header:
-      name: "MATCH_ONE_OPTIONAL"
+    - name: "MATCH_ONE_OPTIONAL"
       matchtype: none
       values:
         - "C"
         - "D"
       required: false
-    - header:
-      name: "MATCH_ALL_CONTAINS"
+    - name: "MATCH_ALL_CONTAINS"
       matchtype: all
       values:
         - "ABC"
         - "123"
       contains: true
       required: true
-    - header:
-      name: "MATCH_ONE_REGEX"
+    - name: "MATCH_ONE_REGEX"
       matchtype: one
       values:
         - "^XYZ$"

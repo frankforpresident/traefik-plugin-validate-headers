@@ -69,8 +69,7 @@ middlewares:
     plugin:
       validate-headers:
         headers:
-          - header:
-            name: "Authorization"
+          - name:  "Authorization"
             matchtype: one
             values:
               - "^Bearer .*"
@@ -84,8 +83,7 @@ middlewares:
     plugin:
       validate-headers:
         headers:
-          - header:
-            name: "X-API-Key"
+          - name:  "X-API-Key"
             matchtype: one
             values:
               - "your-secret-api-key"  # For multiple keys, add them to the values array
@@ -117,8 +115,7 @@ middlewares:
     plugin:
       validate-headers:
         headers:
-          - header:
-            name: "X-Forwarded-Tls-Client-Cert-Info"
+          - name:  "X-Forwarded-Tls-Client-Cert-Info"
             values:
               - "CN=example.com"
             contains: true
@@ -135,8 +132,7 @@ middlewares:
           statuscode: 404
           message: "Not Found"
         headers:
-          - header:
-            name: "Content-Language"
+          - name:  "Content-Language"
             matchtype: none
             values:
               - "de-DE"
@@ -152,4 +148,3 @@ curl -H "X-API-Key: your-secret-api-key" http://api.example.com
 
 - 100% test coverage
 - Inspired by [checkheadersplugin](https://github.com/dkijkuit/checkheadersplugin)
-
