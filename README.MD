@@ -1,5 +1,6 @@
-# Validate Headers Plugin for Traefik 2
+# Validate Headers Plugin for Traefik 2 and 3
 
+[![GitHub Release](https://img.shields.io/github/release/frankforpresident/traefik-plugin-validate-headers.svg)](https://github.com/frankforpresident/traefik-plugin-validate-headers/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/frankforpresident/traefik-plugin-validate-headers)](https://goreportcard.com/report/github.com/frankforpresident/traefik-plugin-validate-headers)
 [![codecov](https://codecov.io/gh/frankforpresident/traefik-plugin-validate-headers/branch/master/graph/badge.svg)](https://codecov.io/gh/frankforpresident/traefik-plugin-validate-headers)
 
