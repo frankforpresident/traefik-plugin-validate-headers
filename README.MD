@@ -102,12 +102,12 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.api.rule=Host(`api.example.com`)"
       # Define the middleware
-      - "traefik.http.middlewares.validate-apikey.plugin.validate-headers.headers[0].header.name=X-API-Key"
+      - "traefik.http.middlewares.validate-apikey.plugin.validate-headers.headers[0].name=X-API-Key"
       - "traefik.http.middlewares.validate-apikey.plugin.validate-headers.headers[0].matchtype=one"
       - "traefik.http.middlewares.validate-apikey.plugin.validate-headers.headers[0].values[0]=your-secret-api-key"
       - "traefik.http.middlewares.validate-apikey.plugin.validate-headers.headers[0].required=true"
       # Apply the middleware
-      - "traefik.http.routers.api.middlewares=validate-apikey@docker"
+      - "traefik.http.routers.api.middlewares=validate-apikey"
 ```
 
 ### Client Certificate Validation
