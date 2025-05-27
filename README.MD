@@ -47,11 +47,11 @@ experimental:
 **Plugin Settings:**
 - `headers`: List of headers to validate
 - `matchtype`: Strategy for header matching (`one`, `all`, `none`) - default: `all`
-- `error`: Custom response for validation failure (`statuscode`, `message`)
+- `error`: Custom response for validation failure (`statuscode`, `message`) - default: `403 Forbidden`
 
 **Header Settings:**
 - `name`: Name of the request header
-- `matchtype`: Value matching strategy (`one`, `all`, `none`)
+- `matchtype`: Value matching strategy (`one`, `all`, `none`) - required, no default
 - `values`: List of values to match
 - `contains`: Match substrings (default: `false`)
 - `regex`: Use regex patterns (default: `false`)
